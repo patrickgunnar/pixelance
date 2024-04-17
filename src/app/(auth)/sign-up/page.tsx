@@ -13,6 +13,7 @@ import {
     AuthCredentialsValidator,
     TypeAuthCredentialsValidator,
 } from "@/lib/validators/credentials";
+import { trpc } from "@/trpc/client";
 
 export default function Page() {
     const {
@@ -23,8 +24,11 @@ export default function Page() {
         resolver: zodResolver(AuthCredentialsValidator),
     });
 
+    const { mutate } = trpc.auth.createPayloadUser.useMutation({});
+
     const onSubmit = ({ email, password }: TypeAuthCredentialsValidator) => {
         // send the data to the server
+        mutate({ email, password });
     };
 
     return (
@@ -69,6 +73,7 @@ export default function Page() {
                                                 errors.password,
                                         })}
                                         placeholder="Password"
+                                        type="password"
                                         {...register("password")}
                                     />
                                 </div>
