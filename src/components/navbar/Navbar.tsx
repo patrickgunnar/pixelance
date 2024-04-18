@@ -4,9 +4,13 @@ import { Icons } from "../icons/Icons";
 import NavItems from "./NavItems";
 import { buttonVariants } from "../ui/button";
 import Cart from "../cards/Cart";
+import { getServerSideUser } from "@/lib/payload-utils";
+import { cookies } from "next/headers";
 
-export default function Navbar() {
-    const user = null;
+export default async function Navbar() {
+    const { user } = await getServerSideUser({
+        cookies: cookies(),
+    });
 
     return (
         <nav className="sticky bg-white inset-x-0 top-0 h-16 z-50">
@@ -43,7 +47,7 @@ export default function Navbar() {
                                     )}
                                     {!user && (
                                         <Link
-                                            href="/register"
+                                            href="/sign-up"
                                             className={buttonVariants({
                                                 variant: "ghost",
                                             })}
