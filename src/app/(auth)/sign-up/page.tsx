@@ -14,6 +14,9 @@ import {
     TypeAuthCredentialsValidator,
 } from "@/lib/validators/credentials";
 import { trpc } from "@/trpc/client";
+import { toast } from "sonner";
+import { ZodError } from "zod";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
     const {
@@ -24,7 +27,29 @@ export default function Page() {
         resolver: zodResolver(AuthCredentialsValidator),
     });
 
-    const { mutate } = trpc.auth.createPayloadUser.useMutation({});
+    const router = useRouter();
+
+    const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+        onError: (err) => {
+            if (err.data?.code === "CONFLICT") {
+                toast.error("This e-mail is already in use. Sign in instead?");
+                return;
+            }
+
+            if (err instanceof ZodError) {
+                toast.error(err.issues[0].message);
+                return;
+            }
+
+            return toast.error("Something went wrong, try again!");
+        },
+        onSuccess: ({ sentToEmail }) => {
+            toast.success(`Verification e-mail sent to ${sentToEmail}.`);
+            router.push(`/verify-email?to=${sentToEmail}`);
+
+            return;
+        },
+    });
 
     const onSubmit = ({ email, password }: TypeAuthCredentialsValidator) => {
         // send the data to the server
@@ -64,6 +89,11 @@ export default function Page() {
                                         placeholder="email@exemple.com"
                                         {...register("email")}
                                     />
+                                    {errors?.email && (
+                                        <p className="text-sm text-red-500">
+                                            {errors.email.message}
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="grid gap-1 py-2">
                                     <Label htmlFor="password">Password:</Label>
@@ -76,6 +106,11 @@ export default function Page() {
                                         type="password"
                                         {...register("password")}
                                     />
+                                    {errors?.password && (
+                                        <p className="text-sm text-red-500">
+                                            {errors.password.message}
+                                        </p>
+                                    )}
                                 </div>
                                 <Button>Sign up</Button>
                             </div>
