@@ -6,6 +6,7 @@ import { buttonVariants } from "../ui/button";
 import Cart from "../cards/Cart";
 import { getServerSideUser } from "@/lib/payload-utils";
 import { cookies } from "next/headers";
+import UserAccountNav from "./UserAccountNav";
 
 export default async function Navbar() {
     const { user } = await getServerSideUser({
@@ -45,7 +46,7 @@ export default async function Navbar() {
                                             aria-hidden="true"
                                         />
                                     )}
-                                    {!user && (
+                                    {!user ? (
                                         <Link
                                             href="/sign-up"
                                             className={buttonVariants({
@@ -54,6 +55,8 @@ export default async function Navbar() {
                                         >
                                             Register
                                         </Link>
+                                    ) : (
+                                        <UserAccountNav user={user} />
                                     )}
                                     {user && (
                                         <span
