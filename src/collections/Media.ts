@@ -1,7 +1,39 @@
-import { CollectionConfig } from "payload/types";
+import { User } from "@/server/payload-types";
+import { Access, CollectionConfig } from "payload/types";
+
+function isAdminOrHasAccessToImages(): Access {
+    return async ({ req }) => {
+        const user = req.user as User | undefined;
+
+        if (!user) return false;
+        if (user.role === "admin") return true;
+
+        return {
+            user: {
+                equals: req.user.id,
+            },
+        };
+    };
+}
 
 export const Media: CollectionConfig = {
     slug: "media",
+    admin: {
+        hidden: ({ user }) => user.role !== "admin",
+    },
+    access: {
+        read: async ({ req }) => {
+            const referer = req.headers.refer;
+
+            if (!req.user || !referer?.includes("sell")) {
+                return true;
+            }
+
+            return await isAdminOrHasAccessToImages()({ req });
+        },
+        delete: isAdminOrHasAccessToImages(),
+        update: isAdminOrHasAccessToImages(),
+    },
     hooks: {
         beforeChange: [
             ({ req, data }) => {
@@ -46,5 +78,4 @@ export const Media: CollectionConfig = {
             },
         },
     ],
-    admin: {},
 };
