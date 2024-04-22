@@ -1,3 +1,4 @@
+import ProductReel from "@/components/reels/ProductReel";
 import GreenSpan from "@/components/span/GreenSpan";
 import { Button, buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/widthWrapper/MaxWidthWrapper";
@@ -52,7 +53,12 @@ export default function Home() {
                         <Button variant="ghost">Browse The Tops &rarr;</Button>
                     </div>
                 </div>
-                {/* TO-DO: List of Products */}
+                <ProductReel
+                    title="Title"
+                    subtitle="Brand New"
+                    href="/products"
+                    query={{ sort: "desc", limit: 4 }}
+                />
             </MaxWidthWrapper>
             <section className="bg-slate-50 border-t border-slate-200">
                 <MaxWidthWrapper className="py-20">
