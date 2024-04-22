@@ -46,14 +46,14 @@ export const Products: CollectionConfig = {
                 value,
             })),
         },
-        /*{
+        {
             name: "product_files",
             label: "Product File(s)",
             type: "relationship",
             relationTo: "product_files",
             required: true,
             hasMany: false,
-        },*/
+        },
         {
             name: "approvedForSale",
             label: "product Status",
