@@ -7,11 +7,12 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { formatsPrice } from "@/lib/utilities";
+import ImageSlider from "../slider/ImageSlider";
 
 function ProductPlaceholder() {
     return (
         <div className="flex flex-col w-full">
-            <div className="relative bg-zinc-100 rounded-xl aspect-square overflow-hidden w-full">
+            <div className="relative bg-green-100 rounded-xl aspect-square overflow-hidden w-full">
                 <Skeleton className="h-full w-full" />
             </div>
             <Skeleton className="rounded-lg mt-4 h-4 w-2/3" />
@@ -48,10 +49,14 @@ export default function ProductListing({
         ({ value }) => value === product.category
     )?.label;
 
+    const validUrls = product.images
+        .map(({ image }) => (typeof image === "string" ? image : image.url))
+        .filter(Boolean) as string[];
+
     if (product && isVisible)
         return (
             <Link
-                href={`/products/${product.id}`}
+                href={`/product/${product.id}`}
                 className={cn(
                     "invisible cursor-pointer group/main h-full w-full",
                     {
@@ -60,6 +65,7 @@ export default function ProductListing({
                 )}
             >
                 <div className="flex flex-col w-full">
+                    <ImageSlider urls={validUrls} />
                     <h3 className="font-medium text-sm text-gray-700 mt-4">
                         {product.name}
                     </h3>
