@@ -2,10 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import { useCart } from "@/hooks/useCart";
+import { Product } from "@/server/payload-types";
 
-interface AddToCartButtonProps {}
+interface AddToCartButtonProps {
+    product: Product;
+}
 
-export default function AddToCartButton({}: AddToCartButtonProps) {
+export default function AddToCartButton({ product }: AddToCartButtonProps) {
+    const { addItem } = useCart();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
     useEffect(() => {
@@ -23,6 +28,7 @@ export default function AddToCartButton({}: AddToCartButtonProps) {
             size="lg"
             className="w-full"
             onClick={() => {
+                addItem(product);
                 setIsSuccess(true);
             }}
         >
