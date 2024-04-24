@@ -5,7 +5,7 @@ import MaxWidthWrapper from "@/components/widthWrapper/MaxWidthWrapper";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { formatsPrice } from "@/lib/utilities";
 import { getPayloadClient } from "@/server/getPayload";
-import { Check, Shield } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -124,20 +124,20 @@ export default async function Page({ params: { id } }: PageProps) {
                         </section>
                     </div>
                     {/* Product Images */}
-                    <div className="mt-10 lg:col-start-2 lg:row-start-2 lg:self-center lg:mt-0">
+                    <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:self-center lg:mt-0">
                         <div className="aspect-square rounded-lg">
                             <ImageSlider urls={validUrls} />
                         </div>
                     </div>
                     {/* Add to Cart */}
-                    <div className="mt-10 lg:col-start-1 lg:row-start-2 lg>self-start lg:max-w-lg">
+                    <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:self-start lg:max-w-lg">
                         <div>
                             <div className="mt-10">
-                                <AddToCartButton />
+                                <AddToCartButton product={product} />
                             </div>
                             <div className="text-center mt-6">
                                 <div className="group inline-flex text-sm text-medium">
-                                    <Shield
+                                    <ShieldCheck
                                         aria-hidden="true"
                                         className="text-green-400 flex-shrink-0 mr-2 h-5 w-5"
                                     />
