@@ -5,13 +5,23 @@ import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/useCart";
 import { formatsPrice } from "@/lib/utilities";
 import { cn } from "@/lib/utils";
+import { trpc } from "@/trpc/client";
 import { Check, Loader2, ShoppingBasket, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
+    const router = useRouter();
+
     const { items, removeItem } = useCart();
+    const { mutate: createCheckoutSession, isLoading } =
+        trpc.payment.createSession.useMutation({
+            onSuccess: ({ url }) => {
+                if (url) router.push(url);
+            },
+        });
 
     const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -22,6 +32,7 @@ export default function Page() {
     const cartTotal = items.reduce((t, { product }) => t + product.price, 0);
     const feeCost = 1;
     const total = cartTotal + feeCost;
+    const productIds = items.map(({ product }) => product.id);
 
     return (
         <div className="bg-white">
@@ -195,7 +206,17 @@ export default function Page() {
                             </div>
                         </div>
                         <div className="mt-6">
-                            <Button className="w-full" size="lg">
+                            <Button
+                                className="w-full"
+                                size="lg"
+                                disabled={items.length === 0 || isLoading}
+                                onClick={() =>
+                                    createCheckoutSession({ productIds })
+                                }
+                            >
+                                {isLoading && (
+                                    <Loader2 className="animate-spin mr-1.5 h-4 w-4" />
+                                )}
                                 Checkout
                             </Button>
                         </div>
