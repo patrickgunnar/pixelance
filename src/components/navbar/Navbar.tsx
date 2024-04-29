@@ -7,6 +7,7 @@ import Cart from "../carts/Cart";
 import { getServerSideUser } from "@/lib/payload-utils";
 import { cookies } from "next/headers";
 import UserAccountNav from "./UserAccountNav";
+import MobileNavbar from "./MobileNavbar";
 
 export default async function Navbar() {
     const { user } = await getServerSideUser({
@@ -19,7 +20,7 @@ export default async function Navbar() {
                 <MaxWidthWrapper>
                     <div className="border-b border-slate-200">
                         <div className="flex items-center h-16">
-                            {/* TO-DO: Mobile Nav */}
+                            <MobileNavbar />
                             <div className="flex ml-4 lg:ml-0">
                                 <Link href="/">
                                     <Icons.logo className="text-green-800 h-10 w-10" />
