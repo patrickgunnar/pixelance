@@ -41,7 +41,7 @@ export default function ReceiptEmail({
     return (
         <Html>
             <Head />
-            <Preview>Your DigitalHippo Receipt</Preview>
+            <Preview>Your Pixelance Receipt</Preview>
 
             <Body style={main}>
                 <Container style={container}>
@@ -176,7 +176,7 @@ export default function ReceiptEmail({
                         <Link href="#">Privacy Policy </Link>
                     </Text>
                     <Text style={footerCopyright}>
-                        Copyright © 2023 DigitalHippo Inc. <br />{" "}
+                        Copyright © 2023 Pixelance Inc. <br />{" "}
                         <Link href="#">All rights reserved</Link>
                     </Text>
                 </Container>
