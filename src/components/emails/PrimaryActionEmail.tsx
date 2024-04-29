@@ -11,6 +11,7 @@ import {
     render,
 } from "@react-email/components";
 import { Icons } from "../icons/Icons";
+import * as React from "react";
 
 interface PrimaryActionEmailProps {
     actionLabel: string;
