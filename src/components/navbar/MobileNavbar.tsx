@@ -1,3 +1,5 @@
+"use client";
+
 import { PRODUCT_CATEGORIES } from "../../config";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
