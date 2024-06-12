@@ -1,8 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pixelance: Your Marketplace for Exceptional Assets!
 
-## Getting Started
+Pixelance is a comprehensive marketplace for digital assets such as icons, images, and more. Built using cutting-edge technologies, Pixelance ensures seamless integration and performance for both buyers and sellers of digital assets.
 
-First, run the development server:
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Environment Variables](#environment-variables)
+- [Database Configuration](#database-configuration)
+- [Install Dependencies](#install-dependencies)
+- [Run Pixelance](#run-pixelance)
+- [License and Ownership](#license-and-ownership)
+
+## Features
+
+- Comprehensive digital asset marketplace
+- Secure payments via Stripe
+- Responsive design with Tailwind CSS
+- Real-time communication and notifications
+- User authentication and management
+- Seamless integration with MongoDB for data storage
+
+## Technologies Used
+
+- **Frontend:** React, Next.js, TypeScript, Tailwind CSS, lucide-react
+- **State Management:** Zustand
+- **Backend:** Express.js, tRPC server and client, Payload CMS
+- **Database:** MongoDB
+- **Authentication and Notifications:** Resend, Nodemailer
+- **Payments:** Stripe
+- **Utilities:** Body-parser, dotenv, cross-env, nodemon, swiper, zod, postcss
+
+## Setup Instructions
+
+To set up and run this project locally, follow these steps:
+
+1. **Clone the repository:**
+```sh
+git clone https://github.com/patrickgunnar/pixelance.git
+cd pixelance
+```
+
+## Environment Variables
+
+Fill in the required keys and secrets in the .env file or rename .env_example to .env.
+
+### Obtaining Keys and Secrets
+
+To run this application, you must have accounts on the following platforms and obtain the necessary keys and secrets:
+
+    - **Payload CMS**: Sign up at Payload CMS and obtain your secret key.
+    - **Stripe**: Sign up at Stripe and obtain your secret key and webhook secret.
+    - **Resend**: Sign up at Resend and obtain your API key.
+
+**Ensure these values are correctly set in your .env file.**
+
+    - PAYLOAD_SECRET=""
+    - NEXT_PUBLIC_SERVER_URL=""
+    - MONGODB_URL=""
+    - RESEND_API_KEY=""
+    - STRIPE_SECRET_KEY=""
+    - STRIPE_WEBHOOK_SECRET=""
+
+## Database Configuration
+
+    1. Ensure your MongoDB database is running.
+    2. Update the MONGODB_URL in the .env file with your database credentials.
+
+## Install dependencies
+```bash
+npm install
+```
+
+## Run Pixelance
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +87,6 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License and Ownership
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+All rights and intellectual property over Caladria are exclusively owned by Patrick Gunnar.
