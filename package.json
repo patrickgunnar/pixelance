@@ -1,5 +1,6 @@
 {
     "name": "pixelance",
+    "author": "Patrick Gunnar",
     "version": "0.1.0",
     "private": true,
     "main": "dist/server/server.js",
