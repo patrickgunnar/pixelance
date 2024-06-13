@@ -4,33 +4,34 @@ Pixelance is a comprehensive marketplace for digital assets such as icons, image
 
 ## Table of Contents
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
-- [Environment Variables](#environment-variables)
-- [Database Configuration](#database-configuration)
-- [Install Dependencies](#install-dependencies)
-- [Run Pixelance](#run-pixelance)
-- [License and Ownership](#license-and-ownership)
+-   [Features](#features)
+-   [Technologies Used](#technologies-used)
+-   [Setup Instructions](#setup-instructions)
+-   [Environment Variables](#environment-variables)
+-   [Database Configuration](#database-configuration)
+-   [Updating Next.js Configuration for Remote Image Patterns](#updating-next.js-configuration-for-remote-image-patterns)
+-   [Install Dependencies](#install-dependencies)
+-   [Run Pixelance](#run-pixelance)
+-   [License and Ownership](#license-and-ownership)
 
 ## Features
 
-- Comprehensive digital asset marketplace
-- Secure payments via Stripe
-- Responsive design with Tailwind CSS
-- Real-time communication and notifications
-- User authentication and management
-- Seamless integration with MongoDB for data storage
+-   Comprehensive digital asset marketplace
+-   Secure payments via Stripe
+-   Responsive design with Tailwind CSS
+-   Real-time communication and notifications
+-   User authentication and management
+-   Seamless integration with MongoDB for data storage
 
 ## Technologies Used
 
-- **Frontend:** React, Next.js, TypeScript, shadcn-ui, Tailwind CSS, lucide-react
-- **State Management:** Zustand
-- **Backend:** Express.js, tRPC server and client, Payload CMS
-- **Database:** MongoDB
-- **Authentication and Notifications:** Resend, Nodemailer
-- **Payments:** Stripe
-- **Utilities:** Body-parser, dotenv, cross-env, nodemon, swiper, zod, postcss
+-   **Frontend:** React, Next.js, TypeScript, shadcn-ui, Tailwind CSS, lucide-react
+-   **State Management:** Zustand
+-   **Backend:** Express.js, tRPC server and client, Payload CMS
+-   **Database:** MongoDB
+-   **Authentication and Notifications:** Resend, Nodemailer
+-   **Payments:** Stripe
+-   **Utilities:** Body-parser, dotenv, cross-env, nodemon, swiper, zod, postcss
 
 ## Setup Instructions
 
@@ -51,12 +52,12 @@ Fill in the required keys and secrets in the .env file or rename .env_example to
 
 To run this application, you must have accounts on the following platforms and obtain the necessary keys and secrets:
 
-- **Stripe**: Sign up at Stripe and obtain your secret key and webhook secret. 
-- **Resend**: Sign up at Resend and obtain your API key.
+-   **Stripe**: Sign up at Stripe and obtain your secret key and webhook secret.
+-   **Resend**: Sign up at Resend and obtain your API key.
 
 ### Set up webhooks:
 
-- **Stripe**: Go to your Stripe dashboard and set the webhook URL to https://"your-url"/api/webhooks/stripe
+-   **Stripe**: Go to your Stripe dashboard and set the webhook URL to https://"your-url"/api/webhooks/stripe
 
 **Ensure these values are correctly set in your .env file.**
 
@@ -80,6 +81,7 @@ To run this application, you must have accounts on the following platforms and o
 To ensure your images are displayed correctly, you need to configure your URL in the Next.js settings. Follow these steps:
 
 1. Open the next.config.mjs file:
+
     - Locate and open the next.config.mjs file in your project root directory.
 
 2. Update the Remote Patterns:
@@ -105,6 +107,7 @@ module.exports = {
 **Replace your-domain.com with your actual domain and adjust the pathname if necessary.**
 
 ## Install dependencies
+
 ```bash
 npm install
 ```
