@@ -58,6 +58,7 @@ To run this application, you must have accounts on the following platforms and o
 ### Set up webhooks:
 
 -   **Stripe**: Go to your Stripe dashboard and set the webhook URL to https://"your-url"/api/webhooks/stripe
+    -   Listens for the "checkout.session.completed" event.
 
 **Ensure these values are correctly set in your .env file.**
 
