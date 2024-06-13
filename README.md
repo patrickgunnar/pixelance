@@ -9,7 +9,7 @@ Pixelance is a comprehensive marketplace for digital assets such as icons, image
 -   [Setup Instructions](#setup-instructions)
 -   [Environment Variables](#environment-variables)
 -   [Database Configuration](#database-configuration)
--   [Updating Next.js Configuration for Remote Image Patterns](#updating-next.js-configuration-for-remote-image-patterns)
+-   [Updating Next.js Configuration for Remote Image Patterns](#updating-next-js-configuration-for-remote-image-patterns)
 -   [Install Dependencies](#install-dependencies)
 -   [Run Pixelance](#run-pixelance)
 -   [License and Ownership](#license-and-ownership)
@@ -96,8 +96,6 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'your-domain.com',
-        port: '',
-        pathname: '/path-to-images/**',
       },
     ],
   },
