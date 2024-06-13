@@ -24,7 +24,7 @@ Pixelance is a comprehensive marketplace for digital assets such as icons, image
 
 ## Technologies Used
 
-- **Frontend:** React, Next.js, TypeScript, Tailwind CSS, lucide-react
+- **Frontend:** React, Next.js, TypeScript, shadcn-ui, Tailwind CSS, lucide-react
 - **State Management:** Zustand
 - **Backend:** Express.js, tRPC server and client, Payload CMS
 - **Database:** MongoDB
@@ -50,23 +50,29 @@ Fill in the required keys and secrets in the .env file or rename .env_example to
 
 To run this application, you must have accounts on the following platforms and obtain the necessary keys and secrets:
 
-    - **Payload CMS**: Sign up at Payload CMS and obtain your secret key.
-    - **Stripe**: Sign up at Stripe and obtain your secret key and webhook secret.
-    - **Resend**: Sign up at Resend and obtain your API key.
+- **Stripe**: Sign up at Stripe and obtain your secret key and webhook secret. 
+- **Resend**: Sign up at Resend and obtain your API key.
+
+### Set up webhooks:
+
+-**Stripe**: Go to your Stripe dashboard and set the webhook URL to https://"your-url"/api/webhooks/stripe
 
 **Ensure these values are correctly set in your .env file.**
 
-    - PAYLOAD_SECRET=""
+    - PAYLOAD_SECRET="" (any secure key)
     - NEXT_PUBLIC_SERVER_URL=""
+
     - MONGODB_URL=""
+
     - RESEND_API_KEY=""
-    - STRIPE_SECRET_KEY=""
+
+    - STRPE_SECRET_KEY=""
     - STRIPE_WEBHOOK_SECRET=""
 
 ## Database Configuration
 
-    1. Ensure your MongoDB database is running.
-    2. Update the MONGODB_URL in the .env file with your database credentials.
+1. Ensure your MongoDB database is running.
+2. Update the MONGODB_URL in the .env file with your database credentials.
 
 ## Install dependencies
 ```bash
@@ -86,6 +92,8 @@ pnpm dev
 # or
 bun dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## License and Ownership
 
