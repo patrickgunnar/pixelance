@@ -55,12 +55,12 @@ To run this application, you must have accounts on the following platforms and o
 
 ### Set up webhooks:
 
--**Stripe**: Go to your Stripe dashboard and set the webhook URL to https://"your-url"/api/webhooks/stripe
+- **Stripe**: Go to your Stripe dashboard and set the webhook URL to https://"your-url"/api/webhooks/stripe
 
 **Ensure these values are correctly set in your .env file.**
 
     - PAYLOAD_SECRET="" (any secure key)
-    - NEXT_PUBLIC_SERVER_URL=""
+    - NEXT_PUBLIC_SERVER_URL="" (application URL)
 
     - MONGODB_URL=""
 
@@ -97,4 +97,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## License and Ownership
 
-All rights and intellectual property over Caladria are exclusively owned by Patrick Gunnar.
+All rights and intellectual property over Pixelance are exclusively owned by Patrick Gunnar.
