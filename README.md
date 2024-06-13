@@ -9,7 +9,7 @@ Pixelance is a comprehensive marketplace for digital assets such as icons, image
 -   [Setup Instructions](#setup-instructions)
 -   [Environment Variables](#environment-variables)
 -   [Database Configuration](#database-configuration)
--   [Updating Next.js Configuration for Remote Image Patterns](#updating-next-js-configuration-for-remote-image-patterns)
+-   [Updating Next Configuration for Remote Image Patterns](#updating-next-configuration-for-remote-image-patterns)
 -   [Install Dependencies](#install-dependencies)
 -   [Run Pixelance](#run-pixelance)
 -   [License and Ownership](#license-and-ownership)
@@ -76,7 +76,7 @@ To run this application, you must have accounts on the following platforms and o
 1. Ensure your MongoDB database is running.
 2. Update the MONGODB_URL in the .env file with your database credentials.
 
-## Updating Next.js Configuration for Remote Image Patterns
+## Updating Next Configuration for Remote Image Patterns
 
 To ensure your images are displayed correctly, you need to configure your URL in the Next.js settings. Follow these steps:
 
@@ -85,6 +85,7 @@ To ensure your images are displayed correctly, you need to configure your URL in
     - Locate and open the next.config.mjs file in your project root directory.
 
 2. Update the Remote Patterns:
+
     - Within the images section, find the remotePatterns array.
 
 Add your hostname (URL) and protocol to the remotePatterns array as shown below:
