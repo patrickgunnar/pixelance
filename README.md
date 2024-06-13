@@ -37,6 +37,7 @@ Pixelance is a comprehensive marketplace for digital assets such as icons, image
 To set up and run this project locally, follow these steps:
 
 1. **Clone the repository:**
+
 ```sh
 git clone https://github.com/patrickgunnar/pixelance.git
 cd pixelance
@@ -73,6 +74,35 @@ To run this application, you must have accounts on the following platforms and o
 
 1. Ensure your MongoDB database is running.
 2. Update the MONGODB_URL in the .env file with your database credentials.
+
+## Updating Next.js Configuration for Remote Image Patterns
+
+To ensure your images are displayed correctly, you need to configure your URL in the Next.js settings. Follow these steps:
+
+1. Open the next.config.mjs file:
+    - Locate and open the next.config.mjs file in your project root directory.
+
+2. Update the Remote Patterns:
+    - Within the images section, find the remotePatterns array.
+
+Add your hostname (URL) and protocol to the remotePatterns array as shown below:
+
+```sh
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'your-domain.com',
+        port: '',
+        pathname: '/path-to-images/**',
+      },
+    ],
+  },
+};
+```
+
+**Replace your-domain.com with your actual domain and adjust the pathname if necessary.**
 
 ## Install dependencies
 ```bash
